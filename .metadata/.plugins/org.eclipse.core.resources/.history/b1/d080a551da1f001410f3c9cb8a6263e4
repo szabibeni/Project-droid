@@ -1,0 +1,5 @@
+package hu.divide.android.quitesetter.data;
+
+public class Period {
+
+}

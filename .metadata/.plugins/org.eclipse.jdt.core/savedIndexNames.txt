@@ -1,5 +1,4 @@
 INDEX VERSION 1.126+D:\GitHub\Project-droid\.metadata\.plugins\org.eclipse.jdt.core
-3123340046.index
 541895900.index
 3979983788.index
 1284074322.index

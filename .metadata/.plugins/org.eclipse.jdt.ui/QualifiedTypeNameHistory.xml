@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.support.v4.app.ListFragment"/>
+<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
+<fullyQualifiedTypeName name="hu.divide.android.quitesetter.data.Period"/>
+<fullyQualifiedTypeName name="hu.divide.android.quitesetter.PeriodListFragment"/>
+<fullyQualifiedTypeName name="hu.divide.android.quitesetter.adapter.PeriodAdapter"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="hu.divide.android.quitesetter.R"/>
+<fullyQualifiedTypeName name="hu.divide.android.quitesetter.R.id"/>
+</qualifiedTypeNameHistroy>

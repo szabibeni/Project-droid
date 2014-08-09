@@ -1,0 +1,35 @@
+package hu.divide.android.quitesetter.adapter;
+
+import java.util.List;
+
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public class MyListAdapter extends BaseAdapter {
+
+	private final List<Period> periods;
+	
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getItem(int pos) {
+		return periods.get(pos);
+	}
+
+	@Override
+	public long getItemId(int pos) {
+		return pos;
+	}
+
+	@Override
+	public View getView(int pos, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

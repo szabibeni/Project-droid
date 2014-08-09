@@ -1,0 +1,27 @@
+package hu.divide.android.quitesetter;
+
+import hu.divide.android.quitesetter.adapter.PeriodAdapter;
+import hu.divide.android.quitesetter.data.Period;
+
+import java.util.ArrayList;
+
+import android.support.v4.app.ListFragment;
+
+public class PeriodListFragment extends ListFragment {
+
+	public static final String TAG = "PeriodListFragment";
+	
+	PeriodAdapter adapter;
+	
+    @Override
+    public void onStart() {
+    	ArrayList<Period> ps = new ArrayList<Period>();
+    	
+    	ps.add(new Period("egyik"));
+    	ps.add(new Period("másik"));
+    	ps.add(new Period("harmadik"));
+    	
+    	adapter = new PeriodAdapter(getActivity(), ps);
+    	super.onStart();
+    }
+}
