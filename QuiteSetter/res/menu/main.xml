@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="hu.divide.android.quitesetter.MainActivity" >
 
+    <item 
+        android:id="@+id/addMenu"
+        android:title="@string/new_period"
+        />
     
 
 </menu>

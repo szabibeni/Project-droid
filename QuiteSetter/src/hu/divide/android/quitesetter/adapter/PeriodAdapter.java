@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class PeriodAdapter extends BaseAdapter {
@@ -24,6 +23,10 @@ public class PeriodAdapter extends BaseAdapter {
 	
 	public void addItem(Period p){
 		periods.add(p);
+	}
+	
+	public void removeItem(int index){
+		periods.remove(index);
 	}
 
 	
@@ -50,8 +53,6 @@ public class PeriodAdapter extends BaseAdapter {
 		View itemView = inflater.inflate(R.layout.periodrow, null);
 		TextView name = (TextView) itemView.findViewById(R.id.nameView);
 		name.setText(p.getName());
-		CheckBox cb = (CheckBox) itemView.findViewById(R.id.checkBox);
-		cb.setChecked(false);
 		return itemView;
 	}
 

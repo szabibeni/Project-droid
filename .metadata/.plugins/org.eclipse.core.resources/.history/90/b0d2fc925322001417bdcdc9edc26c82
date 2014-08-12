@@ -1,0 +1,76 @@
+package hu.divide.android.quitesetter;
+
+
+import hu.divide.android.quitesetter.adapter.PeriodAdapter;
+import hu.divide.android.quitesetter.data.Period;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+public class PeriodCreateFragment extends DialogFragment{
+	
+	public static final String TAG = "PeriodCreateFragment";
+	
+	private EditText editPeriodName;
+	private TimePicker startPicker;
+	private TimePicker endPicker;
+	private Spinner audioMode;
+	private Button createButton;
+	private Button cancelButton;
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View root = inflater.inflate(R.layout.create, container, false);
+		editPeriodName = (EditText) root.findViewById(R.id.nameEdit);
+		startPicker = (TimePicker) root.findViewById(R.id.startPicker);
+		endPicker = (TimePicker) root.findViewById(R.id.endPicker);
+		audioMode = (Spinner) root.findViewById(R.id.audioMode);
+		final String[] modes = getModes();
+		audioMode.setAdapter(new ArrayAdapter<String>(getActivity(), 
+				android.R.layout.simple_spinner_item, modes));
+		getDialog().setTitle("New Period");
+		
+		createButton = (Button) root.findViewById(R.id.createButton);
+		createButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(!editPeriodName.equals("")){
+					PeriodListFragment plf = (PeriodListFragment) getParentFragment();
+					plf.adapter.addItem(new Period(editPeriodName.getText().toString(),
+								startPicker.getDrawingTime(),
+								endPicker.getDrawingTime(),
+								audioMode.getSelectedItemPosition()));
+				} else
+					Toast.makeText(getActivity(), "írjál be nevet", Toast.LENGTH_LONG).show();
+				
+			}
+		});
+		cancelButton = (Button) root.findViewById(R.id.cancelButton);
+		cancelButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dismiss();
+				
+			}
+		});
+		
+		return root;
+	}
+
+	private String[] getModes() {
+		return new String[]{"normal","quite","vibrate"};
+	}
+}

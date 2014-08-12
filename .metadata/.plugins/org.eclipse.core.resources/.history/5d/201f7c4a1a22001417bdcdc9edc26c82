@@ -1,0 +1,55 @@
+package hu.divide.android.quitesetter;
+
+import hu.divide.android.quitesetter.adapter.PeriodAdapter;
+import hu.divide.android.quitesetter.data.Period;
+
+import java.util.ArrayList;
+
+import android.support.v4.app.ListFragment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+public class PeriodListFragment extends ListFragment {
+
+	public static final String TAG = "PeriodListFragment";
+	
+	PeriodAdapter adapter;
+	
+	
+    @Override
+    public void onStart() {
+    	ArrayList<Period> ps = new ArrayList<Period>();
+    	
+    	ps = addData(ps);
+    	setHasOptionsMenu(true);
+    	adapter = new PeriodAdapter(getActivity(), ps);
+    	setListAdapter(adapter);
+    	super.onStart();
+    }
+    
+
+    @Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.main, menu);
+	}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	if (item.getItemId() == R.id.addMenu) {
+			Period p = new Period("period" + (getListAdapter().getCount()+1));
+			adapter.addItem(p);
+			adapter.notifyDataSetChanged();
+			//setListAdapter(adapter);
+			
+    	}
+    	return true;
+    }
+    
+	private ArrayList<Period> addData(ArrayList<Period> ps) {
+		for(int i=1; i<=50; i++){
+			ps.add(new Period("period"+i));
+		}
+		return ps;
+	}
+}
